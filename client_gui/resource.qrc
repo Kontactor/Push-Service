@@ -1,5 +1,6 @@
 <RCC>
     <qresource prefix="/img">
-        <file>Resources/account.png</file>
+        <file>Resources/connected.png</file>
+        <file>Resources/disconnected.png</file>
     </qresource>
 </RCC>

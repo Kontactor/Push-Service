@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>400</width>
-    <height>300</height>
+    <height>150</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -15,48 +15,39 @@
   </property>
   <layout class="QHBoxLayout" name="horizontalLayout">
    <item>
-    <layout class="QVBoxLayout" name="verticalLayout_2">
+    <layout class="QVBoxLayout" name="verticalLayout">
      <item>
-      <widget class="QLabel" name="label">
+      <widget class="QLabel" name="label_pushPriority">
        <property name="text">
-        <string>Тип сообщения</string>
+        <string>Приоритет сообщения</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QCheckBox" name="checkBox_info">
+      <widget class="QCheckBox" name="checkBox_pushPriority_normal">
        <property name="text">
-        <string>Info</string>
-       </property>
-       <property name="checked">
-        <bool>true</bool>
+        <string>Normal</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QCheckBox" name="checkBox_error">
+      <widget class="QCheckBox" name="checkBox_pushPriority_high">
        <property name="text">
-        <string>Error</string>
-       </property>
-       <property name="checked">
-        <bool>true</bool>
+        <string>High</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QCheckBox" name="checkBox_warning">
+      <widget class="QCheckBox" name="checkBox_pushPriority_critical">
        <property name="text">
-        <string>Warning</string>
-       </property>
-       <property name="checked">
-        <bool>true</bool>
+        <string>Critical</string>
        </property>
       </widget>
      </item>
      <item>
-      <spacer name="verticalSpacer">
+      <spacer name="verticalSpacer_2">
        <property name="orientation">
-        <enum>Qt::Vertical</enum>
+        <enum>Qt::Orientation::Vertical</enum>
        </property>
        <property name="sizeHint" stdset="0">
         <size>
@@ -69,18 +60,48 @@
     </layout>
    </item>
    <item>
-    <layout class="QVBoxLayout" name="verticalLayout">
+    <layout class="QVBoxLayout" name="verticalLayout_2">
      <item>
-      <widget class="QLabel" name="label_2">
+      <widget class="QLabel" name="label_pushCategory">
        <property name="text">
-        <string>Время сообщения</string>
+        <string>Тип сообщения</string>
        </property>
       </widget>
      </item>
      <item>
-      <spacer name="verticalSpacer_2">
+      <widget class="QCheckBox" name="checkBox_pushCategory_notification">
+       <property name="text">
+        <string>Notification</string>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QCheckBox" name="checkBox_pushCategory_error">
+       <property name="text">
+        <string>Error</string>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QCheckBox" name="checkBox_pushCategory_warning">
+       <property name="text">
+        <string>Warning</string>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="verticalSpacer">
        <property name="orientation">
-        <enum>Qt::Vertical</enum>
+        <enum>Qt::Orientation::Vertical</enum>
        </property>
        <property name="sizeHint" stdset="0">
         <size>

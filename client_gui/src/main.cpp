@@ -1,14 +1,13 @@
 #include <QApplication>
 #include <memory.h>
 
-#include "auth.h"
+#include "mainwindow.h"
 
 int main(int argc, char* argv[]) {
     QApplication a(argc, argv);
 
-    Auth* auth = new Auth();
-    auth->setAttribute(Qt::WA_DeleteOnClose);
-    auth->show();
+    MainWindow w;
+    w.show();
 
     return a.exec();
 }

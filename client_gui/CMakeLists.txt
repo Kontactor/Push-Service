@@ -1,3 +1,4 @@
+cmake_minimum_required(VERSION 3.16)
 
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
@@ -5,41 +6,50 @@ find_package(QT NAMES Qt6 REQUIRED COMPONENTS Widgets)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 find_package(Boost REQUIRED)
 
+set(CMAKE_AUTOUIC ON)
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTORCC ON)
+
+set(CMAKE_AUTOGEN_BUILD_DIR ${CMAKE_CURRENT_BINARY_DIR}/autogen)
+
 set(CLIENT_GUI_SOURCES
-         src/main.cpp
+        src/main.cpp
         src/mainwindow.cpp
         src/mainwindow.h
         ui/mainwindow.ui
         resource.qrc
-        src/adminpanel.cpp
-        src/adminpanel.h
-        ui/adminpanel.ui
-        src/auth.cpp
-        src/auth.h
-        ui/auth.ui
-        src/client_lib.cpp
-        src/client_lib.h
-        src/user_manager.h
-        src/client_lib_stub.h
+        src/client_gui_event_handler.h
         src/filters_dialog.h
         src/filters_dialog.cpp
         ui/filters_dialog.ui
 )
 
-add_executable(client_gui
+qt_add_executable(client_gui
     MANUAL_FINALIZATION
     ${CLIENT_GUI_SOURCES}
+)
+
+target_include_directories(client_gui PRIVATE
+    ${CMAKE_CURRENT_SOURCE_DIR}/src
+    ${CMAKE_CURRENT_SOURCE_DIR}/ui
+    ${CMAKE_CURRENT_BINARY_DIR}
+    ${CMAKE_AUTOGEN_BUILD_DIR}
+
+    ${CMAKE_SOURCE_DIR}/client_lib/src
+    ${CMAKE_SOURCE_DIR}/common/push/
+    ${CMAKE_SOURCE_DIR}/network/client/include/
 )
 
 set_property(TARGET client_gui PROPERTY AUTOUIC_SEARCH_PATHS ${CMAKE_CURRENT_SOURCE_DIR}/ui)
 set(CMAKE_AUTOUIC_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/src)
 
-target_link_libraries(client_gui PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
+# target_link_libraries(client_gui PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
 
 target_link_libraries(client_gui
     PRIVATE
         Qt${QT_VERSION_MAJOR}::Widgets
-        Boost::headers		
+        Boost::headers
+        client_lib
 )
 
 if(WIN32)
