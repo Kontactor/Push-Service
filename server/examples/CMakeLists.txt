@@ -1,0 +1,2 @@
+add_executable(dispatcher_demo src/dispatcher_demo.cpp)
+target_link_libraries(dispatcher_demo PRIVATE server_lib)

@@ -1,0 +1,2 @@
+add_executable(clent_lib_demo src/client_lib_demo.cpp)
+target_link_libraries(clent_lib_demo PRIVATE client_lib)
